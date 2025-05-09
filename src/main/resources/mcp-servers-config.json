@@ -12,6 +12,16 @@
       ],
       "env": {
       }
+    },
+    "playwright": {
+      "command": "C:\\Users\\colin\\dev\\git\\stdio-logger-go\\stdio-logger-go.exe",
+      "args": [
+        "cmd",
+        "/c",
+        "npx",
+        "@playwright/mcp@latest",
+        "--headless"
+      ]
     }
   }
 }
