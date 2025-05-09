@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "get-weather": {
+      "command": "C:\\Users\\colin\\dev\\git\\stdio-logger-go\\stdio-logger-go.exe",
+      "args": [
+        "java",
+        "-Dspring.ai.mcp.server.stdio=true",
+        "-Dspring.main.web-application-type=none",
+        "-Dlogging.pattern.console=",
+        "-jar",
+        "C:/Users/colin/dev/git/java-mcp-demo/target/java-mcp-demo-0.0.1-SNAPSHOT.jar"
+      ],
+      "env": {
+      }
+    }
+  }
+}
