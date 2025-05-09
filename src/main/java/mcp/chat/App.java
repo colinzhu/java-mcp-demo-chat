@@ -26,7 +26,7 @@ public class App {
         return args -> {
 
             var chatClient = chatClientBuilder
-                    .defaultSystem("You are useful assistant to reply to your questions.")
+                    .defaultSystem("You are a professional assistant to reply user's questions.")
                     .defaultToolCallbacks(new SyncMcpToolCallbackProvider(mcpSyncClients))
                     .defaultAdvisors(new MessageChatMemoryAdvisor(MessageWindowChatMemory.builder().build()))
                     .build();
