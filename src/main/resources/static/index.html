@@ -9,11 +9,13 @@
         #messages { height: 400px; overflow-y: auto; border: 1px solid #eee; padding: 10px; background: #fafafa; margin-bottom: 10px; }
         .msg-user { color: #333; text-align: right; margin: 5px 0; }
         .msg-ai { color: #0077cc; text-align: left; margin: 5px 0; }
+        .msg-ai .markdown-body { text-align: left; }
         #input-area { display: flex; }
         #user-input { flex: 1; padding: 8px; font-size: 16px; }
         #send-btn { padding: 8px 16px; font-size: 16px; background: #0077cc; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
         #send-btn:disabled { background: #aaa; }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
 <div id="chatbox">
@@ -32,7 +34,12 @@ const sendBtn = document.getElementById('send-btn');
 function appendMessage(text, sender) {
     const div = document.createElement('div');
     div.className = sender === 'user' ? 'msg-user' : 'msg-ai';
-    div.textContent = (sender === 'user' ? 'You: ' : 'AI: ') + text;
+    if (sender === 'user') {
+        div.textContent = 'You: ' + text;
+    } else {
+        // Render markdown for AI response
+        div.innerHTML = '<span>AI:</span> <span class="markdown-body">' + marked.parse(text) + '</span>';
+    }
     messagesDiv.appendChild(div);
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
